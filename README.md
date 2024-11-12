@@ -1,5 +1,5 @@
 # Unity WebGL Auto-Build and Upload Script
-This Python script automates the process of building a Unity WebGL project, archiving it, and uploading it to an [itch.io](itch.io) channel using [Butler](https://github.com/itchio/butler).
+This Python script automates the process of building a Unity WebGL project, archiving it, and uploading it to an [itch.io](https://itch.io/) channel using [Butler](https://github.com/itchio/butler).
 
 The script monitors a Git repository and triggers a new build whenever a new commit with a specific tag is detected.
 
@@ -16,7 +16,7 @@ Before using the script, make sure to configure the following settings:
 - `PROJECT_PATH` The path to your Unity project.
 - `BUILD_PATH` The folder where the WebGL build will be stored.
 - `ZIP_PATH` The path for the zipped archive of the WebGL build.
-- `ITCH_IO_CHANNEL` The [itch.io](itch.io) channel where the build will be uploaded. Format should be username/game:web.
+- `ITCH_IO_CHANNEL` The [itch.io](https://itch.io/) channel where the build will be uploaded. Format should be username/game:web.
 - `BUTLER_PATH` If Butler is in your system PATH, use "butler". Otherwise, specify the full path.
 - `CHECK_INTERVAL` The interval (in seconds) between checks for new commits.
 
