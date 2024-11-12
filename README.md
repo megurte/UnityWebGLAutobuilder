@@ -31,3 +31,5 @@ The script will continuously check the Git repository for new commits. If a new 
 2. **Build the Project** Unity will run a WebGL build using the specified method (`Editor.WebGLBuilder.PerformWebGLBuild` by default). You may need to create or modify this method in your Unity project. Unity builder starts in package mode without interface.
 3. **Archive the Build** The WebGL build folder is compressed into a .zip file.
 4. **Upload to itch.io** The .zip file is uploaded to the specified itch.io channel using Butler.
+
+[Here an example](https://github.com/megurte/ItchAutobuilder/blob/main/WebGLBuilder.cs) of external method in C# to call from the script.
