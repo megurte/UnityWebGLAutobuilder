@@ -6,8 +6,8 @@ The script monitors a Git repository and triggers a new build whenever a new com
 ## Requirements
 - **Unity Editor** Installed and available on your system. Update the `UNITY_PATH` in the script to the location of your Unity Editor.
 - **Git** Installed and configured to pull the latest changes from your repository.
-- **Butler** Installed and added to your system's PATH. Butler is used to upload the build to itch.io. See official documentation how to install [butler](https://itch.io/docs/butler/)
-- **Python** This script is written in Python and requires Python 3.x.
+- **Butler** Installed and added to your system's PATH. Butler is used to upload the build to itch.io. See official documentation how to install [butler](https://itch.io/docs/butler/).
+- **Python** This script is written in Python and requires Python 3+.
 
 ## Configuration
 Before using the script, make sure to configure the following settings:
