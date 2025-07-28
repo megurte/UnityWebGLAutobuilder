@@ -11,6 +11,7 @@ ZIP_PATH = os.path.join(PROJECT_PATH, "Build/WebGL.zip")  # Path to archive
 ITCH_IO_CHANNEL = "name/gamelink:web"  # Itch's user name and game's link name username/game:web
 BUTLER_PATH = "butler"  # If butler in PATH - use just 'butler'
 CHECK_INTERVAL = 60  # Inverval how ofter stript checks new commits
+BUILD_TAG = "[build]" # You can change tag here
 
 def get_latest_commit_message():
     try:
@@ -18,6 +19,13 @@ def get_latest_commit_message():
         return commit_message
     except subprocess.CalledProcessError as e:
         print(f"Error when get commit: {e}")
+        return None
+
+def get_latest_commit_hash():
+    try:
+        return subprocess.check_output(["git", "rev-parse", "HEAD"]).strip().decode("utf-8")
+    except subprocess.CalledProcessError as e:
+        print(f"Error getting commit hash: {e}")
         return None
 
 def pull_latest_changes():
@@ -63,16 +71,19 @@ def upload_to_itch():
 
 def main():
     last_commit_message = ""
+    last_commit_hash = ""
+    
     while True:
         pull_latest_changes()
         
         commit_message = get_latest_commit_message()
+        commit_hash = get_latest_commit_hash()
 
-        if last_commit_message != commit_message:
-        	if commit_message and "[build]" in commit_message: # You can change tag here
-        	    print("Tag [build] found, starting build...")
-        	    last_commit_message = commit_message
-        	    
+        if last_commit_hash != commit_hash:
+        	if commit_message and BUILD_TAG.lower() in commit_message.lower(): 
+        	    print("Tag found, starting build...")
+        	    last_commit_hash = commit_hash
+
         	    if build_webgl():
         	        zip_build_folder()
         	        upload_to_itch()
