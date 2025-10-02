@@ -90,7 +90,7 @@ def main():
         	    else:
         	        print("Build failed")
         	else:
-        	    print("Last commint doesn't contain [build] tag. Skip build.")
+        	    print("Last commit doesn't contain [build] tag. Skip build.")
         else:
         	print("Same commit. Skip build")
         
@@ -98,4 +98,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
