@@ -31,7 +31,7 @@ def get_latest_commit_hash():
 def pull_latest_changes():
     try:
         subprocess.check_call(["git", "pull"])
-        print("Pulled chenges")
+        print("Pulled changes")
     except subprocess.CalledProcessError as e:
         print(f"Error git pull: {e}")
 
@@ -98,3 +98,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
